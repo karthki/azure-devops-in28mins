@@ -12,3 +12,8 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- script: |
+    echo echo hi there
+    echo  This is kartheek
+  displayName: 'Run a multi-line script'
