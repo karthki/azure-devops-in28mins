@@ -12,6 +12,3 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
-- scripts: echo hi, hi there
-  displayName: 'Run multiline script' 
