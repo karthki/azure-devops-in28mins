@@ -8,6 +8,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+
 jobs:
 - job: job1
   steps:
@@ -19,7 +20,13 @@ jobs:
       echo  This is kartheek
     displayName: 'Run a multi-line script'
 - job: job2
+  dependsOn: job1
   steps:
   - script: echo job2
     displayName: 'Run a one-line script'
+- job: job3
+  dependsOn: job2
+  steps:
+  - script: echo job3
+    displayName: 'Run job3 a one-line script'
 
