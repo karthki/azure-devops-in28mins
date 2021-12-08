@@ -13,23 +13,31 @@ stages:
     steps:
     - bash: echo Build first job
     - bash: echo $(PipeLineLevelVariable)
-  - job: SecondJob
-    steps:
-    - bash: echo Build Second job
-- stage: DevDeploy
-  variables:
-    environment: Dev
-  dependsOn: Build
-  jobs:
-  - job: DevdeployJob
-    steps:
-    - bash: echo $(PipeLineLevelVariable)deployjob
-- stage: QaDeploy 
-  dependsOn:
-  - Build
-  jobs:
-  - job: QadeployJob
-    steps:
-      - bash: echo Qadeploy job
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildID)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourceDirectory)
+    - bash: echo $(Build.BuildID)
+    - bash: echo ls -R $(System.DafaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+
+# - job: SecondJob
+#    steps:
+#    - bash: echo Build Second job
+#- stage: DevDeploy
+#  variables:
+#    environment: Dev
+#  dependsOn: Build
+#  jobs:
+#  - job: DevdeployJob
+#   steps:
+#    - bash: echo $(PipeLineLevelVariable)deployjob
+#- stage: QaDeploy 
+#  dependsOn:
+#  - Build
+#  jobs:
+#  - job: QadeployJob
+#    steps:
+#      - bash: echo Qadeploy job
 
 
