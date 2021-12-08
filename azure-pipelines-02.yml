@@ -5,6 +5,7 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+
 stages:
 - stage: Build
   jobs:
@@ -19,11 +20,10 @@ stages:
   - job: DevdeployJob
     steps:
     - bash: echo Devdeploy job
-  
 - stage: QaDeploy 
   jobs:
-    - job: QadeployJob
-      steps:
+  - job: QadeployJob
+    steps:
       - bash: echo Qadeploy job
 
 
