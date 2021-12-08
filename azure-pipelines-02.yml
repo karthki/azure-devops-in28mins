@@ -16,11 +16,15 @@ stages:
     steps:
     - bash: echo Build Second job
 - stage: DevDeploy
+  dependsOn: Build
   jobs:
   - job: DevdeployJob
     steps:
     - bash: echo Devdeploy job
 - stage: QaDeploy 
+  dependsOn:
+  - Build
+  - DevDeploy
   jobs:
   - job: QadeployJob
     steps:
