@@ -39,7 +39,7 @@ stages:
 #  - job: QadeployJob
 #    steps:
 #      - bash: echo Qadeploy job
-- stage: ProdDeploy 
+#- stage: ProdDeploy 
 #  dependsOn:
 #  - QadeployJob
 #  jobs:
