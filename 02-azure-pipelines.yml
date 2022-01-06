@@ -12,17 +12,19 @@ stages:
     steps:
     - script: echo Builddeployjob1
       displayName: 'Run a one-line script'
-  
+    - bash: echo $(PipelineLevelVariableValue)
   - job: builddeployjob2
     steps:
     - script: echo Builddeployjob2
       displayName: 'Run a one-line script'
 - stage: devdeploy
+  variables:
+    environment: dev
   dependsOn: build
   jobs:
   - job: devdeployjob2
     steps:
-    - script: echo devdeployjob2
+    - script: echo $(environment)deployjob2
       displayName: 'Run a one-line script'
 - stage: qadeploy
   dependsOn: build
