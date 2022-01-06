@@ -1,0 +1,35 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+#Pipelines -> stages ->jobs -> steps(tasks)
+
+stages:
+- stage: build
+  jobs:
+  - job: builddeployjob1
+    steps:
+    - script: echo Builddeploy job1
+      displayName: 'Run a one-line script'
+- stage: devdeploy
+  jobs:
+  - job: devdeployjob2
+    steps:
+    - script: echo devdeploy job2
+      displayName: 'Run a one-line script'
+- stage: qadeploy
+  jobs:
+  - job: qadeployjob3
+    steps:
+    - script: echo qadeploy job3
+      displayName: 'Run a one-line script'
+- stage: proddeploy
+  jobs:
+  - job: proddeploy job4
+    steps:
+    - script: echo proddeploy job4
+      displayName: 'Run a one-line script'
+
+
+
