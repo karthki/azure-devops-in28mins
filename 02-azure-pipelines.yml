@@ -12,6 +12,11 @@ stages:
     steps:
     - script: echo Builddeployjob1
       displayName: 'Run a one-line script'
+  
+  - job: builddeployjob2
+    steps:
+    - script: echo Builddeployjob2
+      displayName: 'Run a one-line script'
 - stage: devdeploy
   jobs:
   - job: devdeployjob2
