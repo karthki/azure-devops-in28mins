@@ -25,6 +25,7 @@ stages:
   - job: devdeployjob2
     steps:
     - script: echo $(environment)deployjob2
+    - bash: echo $(environment)deployjob2
       displayName: 'Run a one-line script'
 - stage: qadeploy
   dependsOn: build
