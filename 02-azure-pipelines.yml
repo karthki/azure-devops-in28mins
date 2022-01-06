@@ -11,38 +11,40 @@ stages:
   - job: builddeployjob1
     steps:
     - script: echo Builddeployjob1
-      displayName: 'Run a one-line script'
     - bash: echo $(PipelineLevelVariableValue)
-  - job: builddeployjob2
-    steps:
-    - script: echo Builddeployjob2
-      displayName: 'Run a one-line script'
-- stage: devdeploy
-  variables:
-    environment: dev
-  dependsOn: build
-  jobs:
-  - job: devdeployjob2
-    steps:
-    - script: echo $(environment)deployjob2
-    - bash: echo $(environment)deployjob2
-      displayName: 'Run a one-line script'
-- stage: qadeploy
-  dependsOn: build
-  jobs:
-  - job: qadeployjob3
-    steps:
-    - script: echo qadeployjob3
-      displayName: 'Run a one-line script'
-- stage: proddeploy
-  dependsOn:
-  - devdeploy
-  - qadeploy
-  jobs:
-  - job: proddeployjob4
-    steps:
-    - script: echo proddeploy job4
-      displayName: 'Run a one-line script'
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranch)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+  
+#- stage: devdeploy
+#  variables:
+#    environment: dev
+#  dependsOn: build
+#  jobs:
+#  - job: devdeployjob2
+#   steps:
+#    - script: echo $(environment)deployjob2
+#      displayName: 'Run a one-line script'
+#- stage: qadeploy
+#  dependsOn: build
+#  jobs:
+#  - job: qadeployjob3
+#    steps:
+#    - script: echo qadeployjob3
+#     displayName: 'Run a one-line script'
+#- stage: proddeploy
+#  dependsOn:
+#  - devdeploy
+#  - qadeploy
+#  jobs:
+#  - job: proddeployjob4
+#    steps:
+#   - script: echo proddeploy job4
+#      displayName: 'Run a one-line script'
 
 
 
