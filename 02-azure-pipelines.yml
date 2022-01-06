@@ -10,23 +10,23 @@ stages:
   jobs:
   - job: builddeployjob1
     steps:
-    - script: echo Builddeploy job1
+    - script: echo Builddeployjob1
       displayName: 'Run a one-line script'
 - stage: devdeploy
   jobs:
   - job: devdeployjob2
     steps:
-    - script: echo devdeploy job2
+    - script: echo devdeployjob2
       displayName: 'Run a one-line script'
 - stage: qadeploy
   jobs:
   - job: qadeployjob3
     steps:
-    - script: echo qadeploy job3
+    - script: echo qadeployjob3
       displayName: 'Run a one-line script'
 - stage: proddeploy
   jobs:
-  - job: proddeploy job4
+  - job: proddeployjob4
     steps:
     - script: echo proddeploy job4
       displayName: 'Run a one-line script'
