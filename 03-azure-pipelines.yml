@@ -20,6 +20,7 @@ stages:
   jobs:
   - deployment: devdeployjob
     environment: dev
+  - job: devjob
     steps:
     - bash: echo "Do the build"
 - stage: qadeploy
