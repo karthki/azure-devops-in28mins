@@ -25,15 +25,15 @@ stages:
     - bash: echo "Do the build"
 - stage: qadeploy
   jobs:
-  - deployment: devdeployjob
-    environment: dev
+  - deployment: qadeployjob
+    environment: qa
   - job: qajob
     steps:
     - bash: echo "Do the qadeploy"
 - stage: proddeploy
   jobs:
   - deployment: devdeployjob
-    environment: dev
+    environment: prod
   - job: prodjob
     steps:
     - bash: echo "Do the proddeploy"
